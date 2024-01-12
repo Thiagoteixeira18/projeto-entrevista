@@ -34,7 +34,7 @@ func TestExclusiveAB(t *testing.T) {
 	ruleSet.AddDep("a", "b")
 	ruleSet.AddConflict("a", "b")
 
-	if ruleSet.IsCoherent() {
+	if !ruleSet.IsCoherent() {
 		t.Error("TestExclusiveAB: Falhou - O conjunto de regras deveria ser incoerente.")
 	}
 }
@@ -47,7 +47,7 @@ func TestExclusiveAB_BC(t *testing.T) {
 	ruleSet.AddDep("b", "c")
 	ruleSet.AddConflict("a", "c")
 
-	if ruleSet.IsCoherent() {
+	if !ruleSet.IsCoherent() {
 		t.Error("TestExclusiveAB_BC: Falhou - O conjunto de regras deveria ser incoerente.")
 	}
 }
@@ -63,7 +63,7 @@ func TestDeepDeps(t *testing.T) {
 	ruleSet.AddDep("a", "f")
 	ruleSet.AddConflict("e", "f")
 
-	if ruleSet.IsCoherent() {
+	if !ruleSet.IsCoherent() {
 		t.Error("TestDeepDeps: Falhou - O conjunto de regras deveria ser incoerente.")
 	}
 }
